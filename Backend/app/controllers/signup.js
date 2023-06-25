@@ -4,7 +4,7 @@ const signup = async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    const user = Credentials.findOne({ email: email });
+    const user = await Credentials.findOne({ email: email });
     if (user) {
       return res.status(200).json({ message: "User already exists" });
     }
@@ -16,7 +16,7 @@ const signup = async (req, res) => {
     });
     await newUser.save();
 
-    res.status(200).json({ message: "User added" });
+    res.status(201).json({ message: "User added" });
   } catch (error) {
     console.log(error);
     res.status(500).json({ error: "An error occured" });

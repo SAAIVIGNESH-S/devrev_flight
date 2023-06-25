@@ -3,11 +3,17 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const router = require("./app/routes/routes");
-
+const cors = require("cors");
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
+
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+  })
+);
 
 app.use(router);
 

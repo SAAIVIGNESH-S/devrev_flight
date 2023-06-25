@@ -3,18 +3,32 @@ const Ticket = require("../models/ticket_model");
 
 const userViewBooking = async (req, res) => {
   try {
-    const passenger_id = req.body.passenger_id;
-    const passenger = await Passenger.findOne({ passenger_id: passenger_id });
+    if (req.user.role === "user") {
+      const tickets = await Ticket.find({
+        user_email: { $eq: req.user.email },
+      });
 
-    if (!passenger) {
-      return res.status(404).json({ message: "Invalid passenger" });
+      let temp = [];
+
+      for (let i = 0; i < tickets.length; i++) {
+        let ticket = tickets[i];
+        ticket["passenger_seat"].forEach((key, value) => {
+          temp.push({
+            ticket_id: ticket["ticket_id"],
+            flight_id: ticket["flight_id"],
+            trip_date: ticket["trip_date"],
+            passenger_seat: key,
+            passenger_id: value,
+            payment_id: ticket["payment_id"],
+          });
+        });
+      }
+
+
+      res.status(200).json({ message: temp });
+    } else {
+      res.status(403).json({ message: "Forbidden" });
     }
-
-    const tickets = await Ticket.find({
-      ticket_id: { $in: passenger.booking_id },
-    });
-
-    res.status(200).json({ message: tickets });
   } catch (error) {
     console.log(error);
     res.status(500).json({ error: "An error occured" });

@@ -6,6 +6,10 @@ const ticketSchema = new mongoose.Schema({
     required: true,
     unique: true,
   },
+  user_email: {
+    type: String,
+    required: true,
+  },
   flight_id: {
     type: Number,
     required: true,

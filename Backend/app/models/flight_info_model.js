@@ -25,9 +25,9 @@ const flightInfoSchema = new mongoose.Schema({
   price: {
     type: Number,
     required: true,
-  }
+  },
 });
 
 const FlightInfo = mongoose.model("FlightInfo", flightInfoSchema);
 
-module.exports =  FlightInfo ;
+module.exports = FlightInfo;
