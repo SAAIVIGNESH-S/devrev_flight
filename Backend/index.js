@@ -6,14 +6,15 @@ const router = require("./app/routes/routes");
 const cors = require("cors");
 const app = express();
 
+app.use(
+  cors({
+    origin: ["https://6498552e83147617a0371bdd--majestic-macaron-9e137e.netlify.app/","*"],
+  })
+);
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.use(
-  cors({
-    origin: "https://6498552e83147617a0371bdd--majestic-macaron-9e137e.netlify.app/",
-  })
-);
 
 app.use(router);
 
