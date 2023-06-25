@@ -66,8 +66,8 @@ const SignIn = (props) => {
     };
     try {
       let url;
-      if (isSignUp) url = "http://localhost:8080/signup";
-      else url = "http://localhost:8080/login";
+      if (isSignUp) url = "https://flight-06ee.onrender.com/signup";
+      else url = "https://flight-06ee.onrender.com/login";
       const response = await fetch(url, {
         method: "POST",
         body: JSON.stringify(body),

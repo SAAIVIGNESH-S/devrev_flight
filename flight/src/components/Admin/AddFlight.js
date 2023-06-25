@@ -70,7 +70,7 @@ const AddFlight = (props) => {
         departure: time,
       };
 
-      const response = await fetch("http://localhost:8080/add-flight", {
+      const response = await fetch("https://flight-06ee.onrender.com/add-flight", {
         method: "POST",
         body: JSON.stringify(flight),
         headers: {

@@ -12,7 +12,7 @@ const ViewBooking = (props) => {
     setError(null);
     try {
       const response = await fetch(
-        `http://localhost:8080/admin-view-booking?flight_id=${props.flight["flight_id"]}&departure=${props.flight["departure"]}`,
+        `https://flight-06ee.onrender.com/admin-view-booking?flight_id=${props.flight["flight_id"]}&departure=${props.flight["departure"]}`,
         {
           headers: {
             "Content-Type": "application/json",

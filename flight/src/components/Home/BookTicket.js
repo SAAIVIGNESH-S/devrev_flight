@@ -83,7 +83,7 @@ const BookTicket = (props) => {
         passenger_id: passengerId,
       };
 
-      const response = await fetch("http://localhost:8080/book-ticket", {
+      const response = await fetch("https://flight-06ee.onrender.com/book-ticket", {
         method: "POST",
         body: JSON.stringify(body),
         headers: {

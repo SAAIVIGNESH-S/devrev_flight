@@ -52,7 +52,7 @@ const Home = (props) => {
   };
   const fetchStopsHandler = async () => {
     try {
-      const response = await fetch("http://localhost:8080/get-stops", {
+      const response = await fetch("https://flight-06ee.onrender.com/get-stops", {
         headers: {
           "Content-Type": "application/json",
           Authorization: "Bearer " + window.localStorage.getItem("accessToken"),
@@ -102,7 +102,7 @@ const Home = (props) => {
 
     try {
       const response = await fetch(
-        `http://localhost:8080/search-flight?date=${date}&time=${time}&source=${src}&destination=${dest}`,
+        `https://flight-06ee.onrender.com/search-flight?date=${date}&time=${time}&source=${src}&destination=${dest}`,
         {
           headers: {
             "Content-Type": "application/json",

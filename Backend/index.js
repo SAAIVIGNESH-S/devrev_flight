@@ -11,7 +11,7 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "https://6498552e83147617a0371bdd--majestic-macaron-9e137e.netlify.app/",
   })
 );
 

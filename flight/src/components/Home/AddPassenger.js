@@ -43,7 +43,7 @@ const AddPassenger = (props) => {
         phone: phone,
       };
 
-      const response = await fetch("http://localhost:8080/add-passenger", {
+      const response = await fetch("https://flight-06ee.onrender.com/add-passenger", {
         method: "POST",
         body: JSON.stringify(passenger),
         headers: {

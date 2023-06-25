@@ -11,7 +11,7 @@ const ViewTickets = (props) => {
     setIsLoading(true);
     setError(null);
     try {
-      const response = await fetch("http://localhost:8080/user-view-booking", {
+      const response = await fetch("https://flight-06ee.onrender.com/user-view-booking", {
         headers: {
           "Content-Type": "application/json",
           Authorization: "Bearer " + window.localStorage.getItem("accessToken"),

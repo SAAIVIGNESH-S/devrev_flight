@@ -36,7 +36,7 @@ const RemoveFlight = (props) => {
         given_date: date,
       };
 
-      const response = await fetch("http://localhost:8080/remove-flight", {
+      const response = await fetch("https://flight-06ee.onrender.com/remove-flight", {
         method: "POST",
         body: JSON.stringify(body),
         headers: {

@@ -14,7 +14,7 @@ export const AuthContextProvider = (props) => {
   useEffect(() => {
     const accessToken = localStorage.getItem("accessToken");
     setStatus("loading");
-    fetch("http://localhost:8080/check-token", {
+    fetch("https://flight-06ee.onrender.com/check-token", {
       method: "POST",
       body: JSON.stringify({ token: accessToken }),
       headers: {
