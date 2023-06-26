@@ -58,7 +58,7 @@ const bookTicket = async (req, res) => {
       for (let i = 0; i < passenger_id.length; i++) {
         ids.push(ticket_id);
         await Passenger.updateOne(
-          { passenger_id: passenger_id },
+          { passenger_id: passenger_id[i] },
           {
             $push: {
               booking_id: ticket_id,
