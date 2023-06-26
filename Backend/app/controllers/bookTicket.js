@@ -53,10 +53,10 @@ const bookTicket = async (req, res) => {
         flight.isOpen = false;
       }
 
-      flight.booking_ids.push(ticket_id);
-      await flight.save();
+      let ids = flight.booking_ids;
 
       for (let i = 0; i < passenger_id.length; i++) {
+        ids.push(ticket_id);
         await Passenger.updateOne(
           { passenger_id: passenger_id },
           {
@@ -66,6 +66,8 @@ const bookTicket = async (req, res) => {
           }
         );
       }
+      flight.booking_ids = ids;
+      await flight.save();
 
       res.status(200).json({ message: "Tickets Booked" });
     } else {
